@@ -19,21 +19,17 @@ public class ClientCartServlet extends HttpServlet {
 
     private final CartDAO cartDAO = new CartDAO();
 
-    private User requireLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        HttpSession session = req.getSession();
-        User user = (User) session.getAttribute("user");
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+       
+        HttpSession session = req.getSession(false);
+        User user = (session == null) ? null : (User) session.getAttribute("user");
         if (user == null) {
             resp.sendRedirect("login.jsp");
-            return null;
+            return;
         }
-        return user;
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        User user = requireLogin(req, resp);
-        if (user == null) return;
 
         int userId = user.getId();
 
@@ -42,8 +38,10 @@ public class ClientCartServlet extends HttpServlet {
         if ("add".equals(action)) {
             String idRaw = req.getParameter("id");
             if (idRaw != null && !idRaw.isEmpty()) {
-                int productId = Integer.parseInt(idRaw);
-                cartDAO.addToCart(userId, productId);
+                try {
+                    int productId = Integer.parseInt(idRaw);
+                    cartDAO.addToCart(userId, productId);
+                } catch (NumberFormatException ignored) {}
             }
             resp.sendRedirect("cart");
             return;
@@ -51,18 +49,24 @@ public class ClientCartServlet extends HttpServlet {
 
         // View cart
         List<CartItem> items = cartDAO.getItems(userId);
-        int total = cartDAO.getTotal(userId);
-
+   
         req.setAttribute("items", items);
-        req.setAttribute("total", total);
+        
         req.getRequestDispatcher("cart.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-        User user = requireLogin(req, resp);
-        if (user == null) return;
+        req.setCharacterEncoding("UTF-8");
+
+        HttpSession session = req.getSession(false);
+        User user = (session == null) ? null : (User) session.getAttribute("user");
+        if (user == null) {
+            resp.sendRedirect("login.jsp"); 
+            return;
+        }
 
         int userId = user.getId();
 
@@ -74,14 +78,25 @@ public class ClientCartServlet extends HttpServlet {
             return;
         }
 
-        int productId = Integer.parseInt(idRaw);
+        int productId;
+        try {
+            productId = Integer.parseInt(idRaw);
+        } catch (NumberFormatException e) {
+            resp.sendRedirect("cart");
+            return;
+        }
 
         if ("remove".equals(action)) {
             cartDAO.remove(userId, productId);
+
         } else if ("update".equals(action)) {
-            // nếu sau này muốn update lại thì mở:
-            int qty = Integer.parseInt(req.getParameter("qty"));
-            cartDAO.updateQty(userId, productId, qty);
+            String qtyRaw = req.getParameter("qty");
+            try {
+                int qty = Integer.parseInt(qtyRaw);
+                if (qty < 1) qty = 1;
+                cartDAO.updateQty(userId, productId, qty);
+            } catch (Exception ignored) {}
+
         } else if ("add".equals(action)) {
             cartDAO.addToCart(userId, productId);
         }

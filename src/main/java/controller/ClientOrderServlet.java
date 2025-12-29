@@ -28,7 +28,7 @@ public class ClientOrderServlet extends HttpServlet {
             return;
         }
 
-        // nếu có ?id=... => xem chi tiết đơn
+       
         String idRaw = req.getParameter("id");
         if (idRaw != null && !idRaw.isEmpty()) {
             int orderId = Integer.parseInt(idRaw);

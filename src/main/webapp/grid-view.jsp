@@ -4,9 +4,6 @@
 <!DOCTYPE html>
 <html>
 <style>
-main {
-    text-align: center;
-}
 
 .grid-view {
     display: grid;
@@ -37,9 +34,13 @@ main {
     margin-top: 5px;
     text-align: left;
 }
+
+
+
 </style>
 <body>
 <main>
+		
 		<div class="grid-view">
 			<c:forEach var="product" items="${products}">
 				<div class="item">

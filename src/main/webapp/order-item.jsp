@@ -15,10 +15,7 @@
     margin: 30px auto;
 }
 
-.order-detail h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+
 
 .order-detail table {
     width: 100%;
@@ -67,7 +64,7 @@
     <!-- CONTENT -->
     <div class="order-detail">
         <div class="container">
-            <h2>Chi tiết đơn hàng #${orderId}</h2>
+           
 
             <!-- Không có sản phẩm -->
             <c:if test="${empty items}">
