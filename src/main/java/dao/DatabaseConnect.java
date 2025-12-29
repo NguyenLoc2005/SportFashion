@@ -7,7 +7,7 @@ public class DatabaseConnect {
 
     private static final String URL = 
         "jdbc:mysql://localhost:3306/sportfashion";
-
+ 
     private static final String USER = "root";
     private static final String PASS = "2005";  
 

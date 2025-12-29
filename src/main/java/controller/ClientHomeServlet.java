@@ -33,7 +33,6 @@ public class ClientHomeServlet extends HttpServlet {
             case "detail-product": {
                 int id = Integer.parseInt(req.getParameter("id"));
                 Product product = productDAO.getProductById(id);
-
                 req.setAttribute("product", product);
                 req.getRequestDispatcher("detail-product.jsp").forward(req, resp);
                 break;
@@ -41,7 +40,8 @@ public class ClientHomeServlet extends HttpServlet {
 
             case "filter": {
                 String type = req.getParameter("type");
-                List<Product> products = productDAO.searchFilterProduct(type);
+                List<Product> products = productDAO.searchFilterProduct(type); 
+                
                 req.setAttribute("products", products);
                 req.getRequestDispatcher("index.jsp").forward(req, resp);
                 break;
@@ -49,7 +49,8 @@ public class ClientHomeServlet extends HttpServlet {
 
             case "search": {
                 String name = req.getParameter("name");
-                List<Product> products = productDAO.searchProduct(name);
+                List<Product> products = productDAO.searchProduct(name); 
+                
                 req.setAttribute("products", products);
                 req.getRequestDispatcher("index.jsp").forward(req, resp);
                 break;
@@ -57,7 +58,8 @@ public class ClientHomeServlet extends HttpServlet {
 
             case "list":
             default: {
-                List<Product> products = productDAO.getAllProducts();
+                List<Product> products = productDAO.getAllProducts(); 
+                
                 req.setAttribute("products", products);
                 req.getRequestDispatcher("index.jsp").forward(req, resp);
                 break;

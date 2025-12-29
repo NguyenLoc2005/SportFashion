@@ -10,7 +10,7 @@
 <body>
 <%
     session.invalidate();   // hủy session hiện tại
-    response.sendRedirect("login.jsp"); // quay về trang login
+    response.sendRedirect("clientHome"); // quay về trang login
 %>
 
 </body>

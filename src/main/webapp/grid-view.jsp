@@ -11,14 +11,16 @@ main {
 .grid-view {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 cột */
-    gap: 20px; /* khoảng cách giữa sản phẩm */
+    gap: 20px;
     margin: 30px 0;
 }
 
 .item {
-    background: #fafafa;
+	margin-left: 20px;
+    background: #87ceeb;
     text-align: center;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .item img {

@@ -10,6 +10,10 @@ import model.User;
 public class UserDAO {
 	
 	//Hàm login
+	// User h = new User()
+	// h.Login(long123,lllll)
+	//Login(1,2)
+	//
 	public User Login(String userName, String password) {
 		String sql="select * from users where userName = ? and password = ?";
 		
@@ -21,6 +25,7 @@ public class UserDAO {
 			
 			while (rs.next()) {
 				User u = new User();
+				
 				u.setId(rs.getInt("id"));
 				u.setUserName(rs.getString("userName"));
 				u.setRole(rs.getString("role"));

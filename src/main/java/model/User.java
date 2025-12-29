@@ -6,25 +6,28 @@ public class User {
 	private String password;
 	private String role;
 
+	//contrucstor: hàm khởi tạo
 	public User() {
 
 	}
 
 	public User(int id, String userName, String password, String role) {
-		super();
 		this.id = id;
 		this.userName = userName;
 		this.password = password;
 		this.role = role;
 	}
-
+	
+	//user: h(id=1), k 
 	public int getId() {
 		return id;
 	}
-
+	
+	//user: h(id=)
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public String getUserName() {
 		return userName;

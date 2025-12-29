@@ -15,11 +15,11 @@ footer {
 }
 
 .aboutme {
-	margin-right: 100px;
+	flex: 1;
 }
 
 .contact a {
-	margin-right: 20px;
+	flex: 1;
 }
 </style>
 <body>
@@ -28,10 +28,10 @@ footer {
 			<h3>Về nhóm tác giả</h3>
 			<p>Nhóm Web ... VNUA</p>
 			<p>Các thành viên:</p>
-			<p>-Tên 1</p>
-			<p>-Tên 2</p>
-			<p>-Tên 3</p>
-			<p>-Tên 4</p>
+			<p>Nguyễn Duy Khánh</p>
+			<p>Nguyễn Phi Long</p>
+			<p>Nguyễn Tùng Lâm</p>
+			<p>Hà Anh Phương</p>
 		</div>
 
 		<div class="contact">

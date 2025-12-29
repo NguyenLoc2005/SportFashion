@@ -15,13 +15,12 @@ header{
     align-items: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 19px;
-    border-bottom: solid ;
-    padding: 0 40px;
+    border-bottom: solid;
 }
 
 
 .logo{
-    flex: 2
+    flex: 1
 
 }
 .menu{
@@ -48,7 +47,6 @@ header{
 <body>
     <header>
         <div class="logo">
-            <!-- Ấn vào logo để trở về trang chủ -->
             <a href="clientHome"><img src="https://rubicmarketing.com/wp-content/uploads/2023/02/logo-man-city.jpg" width="150"></a>
         </div>
 
@@ -60,22 +58,23 @@ header{
 
         <div class="others">
             <form action="clientHome" method="get">
-    			<input type="hidden" name="action" value="search">
-    			<input type="text" name="name" placeholder="Tìm kiếm" style="border-radius: 7px;">	
+            	<input type="hidden" name="action" value="search">
+    			<input type="text" name="name" placeholder="Tìm kiếm" style="border-radius: 7px;">
 			</form>
-
-            
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" width="25"></a>
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/128/839/839860.png" width="25"></a>
-            
+			
 			<c:choose>
     			<c:when test="${not empty sessionScope.user}">
+        			<a href="cart"><img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" width="25"></a>
+        			<a href="order"><img src="https://cdn-icons-png.flaticon.com/128/839/839860.png" width="25"></a>
         			<a href="profile.jsp"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" width="25"></a>
    				</c:when>
     			<c:otherwise>
+    				<a href="login.jsp"><img src="https://cdn-icons-png.flaticon.com/128/3144/3144456.png" width="25"></a>
+        			<a href="login.jsp"><img src="https://cdn-icons-png.flaticon.com/128/839/839860.png" width="25"></a>
         			<a href="login.jsp"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" width="25"></a>
     			</c:otherwise>
 			</c:choose>
+            
 
 			
         </div>

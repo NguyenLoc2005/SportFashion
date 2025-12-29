@@ -6,64 +6,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Sport Fashion</title>
-
+</head>
 <style>
-body{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	background-color: #f5f5f5;
-}
-
-.khung{
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.khung {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .login{
-	text-align: center;
-	border: 1px solid #ccc;
-	font-family: 'Times New Roman', Times, serif;
-	font-size: 19px;
-	padding: 50px 60px;
-	border-radius: 10px;
-	background: #fff;
-	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    width: fit-content;
+    padding: 30px 40px;
+    border-radius: 12px;
 }
 
-.login input{
-	font-size: 15px;
-	margin: 12px 0;
-	padding: 8px 10px;
-	width: 220px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+.login h2{
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .login button{
-	font-size: 15px;
-	margin-top: 10px;
-	padding: 8px 25px;
-	border-radius: 5px;
-	border: none;
-	background-color: #000;
-	color: #fff;
-	cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    padding: 6px 20px;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
+.login input{
+    border-radius: 6px;
+    padding: 6px 10px;
+    width: 220px;
+}
 
 .login a{
-	display: block;
-	margin-top: 15px;
-	font-size: 16px;
-	color: #555;
-	text-decoration: none;
+    display: block;
+    text-align: left;
+   text-decoration: none;
 }
-</style>
+.login p{
+    text-align: center;
+}
 
-</head>
+</style>
 
 <body>
     <div class="khung">
@@ -71,12 +58,12 @@ body{
             <form action="login" method="post">
                 <h2>Đăng nhập</h2>
 
-                <input type="text" name="userName" placeholder="Tài khoản"><br>
-                <input type="password" name="password" placeholder="Mật khẩu"><br>
+                <input type="text" name="userName" placeholder="Tài khoản"><br><br>
+                <input type="password" name="password" placeholder="Mật khẩu"><br><br>
 				<c:if test="${not empty err}">
     				<p style="color:red">${err}</p>
-				</c:if>
-                <button type="submit">Đăng nhập</button>
+				</c:if><br>
+                <button type="submit">Đăng nhập</button><br><br>
                 <a href="clientHome">← Quay lại</a>
             </form>
         </div>
