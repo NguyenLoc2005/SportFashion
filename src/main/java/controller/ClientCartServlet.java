@@ -33,7 +33,7 @@ public class ClientCartServlet extends HttpServlet {
 
         int userId = user.getId();
 
-        // ADD bằng GET: /cart?action=add&id=...
+        
         String action = req.getParameter("action");
         if ("add".equals(action)) {
             String idRaw = req.getParameter("id");
