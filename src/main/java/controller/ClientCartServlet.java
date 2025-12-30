@@ -94,7 +94,7 @@ public class ClientCartServlet extends HttpServlet {
             try {
                 int qty = Integer.parseInt(qtyRaw);
                 if (qty < 1) qty = 1;
-                cartDAO.updateQty(userId, productId, qty);
+                cartDAO.updateQuantity(userId, productId, qty);
             } catch (Exception ignored) {}
 
         } else if ("add".equals(action)) {

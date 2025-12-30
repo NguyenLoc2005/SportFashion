@@ -9,11 +9,7 @@ import model.User;
 
 public class UserDAO {
 	
-	//Hàm login
-	// User h = new User()
-	// h.Login(long123,lllll)
-	//Login(1,2)
-	//
+	//Login
 	public User Login(String userName, String password) {
 		String sql="select * from users where userName = ? and password = ?";
 		
@@ -38,6 +34,20 @@ public class UserDAO {
 		return null;
 	}
 	
-	//Hàm register
-	
+	//Register
+	public boolean Register(String userName, String password) {
+		String sql="insert into users(userName,password,role) values (?,?,user)";
+		
+		try(Connection conn = DatabaseConnect.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)){
+			ps.setString(1,userName);
+			ps.setString(2,password);
+			
+			int rows = ps.executeUpdate();
+			return rows>0;
+				
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
 }

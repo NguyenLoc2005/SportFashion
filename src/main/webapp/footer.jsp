@@ -25,23 +25,16 @@ footer {
 <body>
     <footer>
 		<div class="aboutme">
-			<h3>Về nhóm tác giả</h3>
-			<p>Nhóm Web ... VNUA</p>
-			<p>Các thành viên:</p>
-			<p>Nguyễn Duy Khánh</p>
-			<p>Nguyễn Phi Long</p>
-			<p>Nguyễn Tùng Lâm</p>
-			<p>Hà Anh Phương</p>
+			<h3>Nhóm tác giả</h3>
+			<p>1. Nguyễn Duy Khánh</p>
+			<p>2. Nguyễn Phi Long</p>
+			<p>3. Nguyễn Tùng Lâm</p>
+			<p>4. Hà Anh Phương</p>
 		</div>
 
 		<div class="contact">
 			<h3>Contact for me: Humble</h3>
-			<a href="https://www.facebook.com/nguyenloc.05/"><img
-				src="https://cdn-icons-png.flaticon.com/128/733/733547.png"
-				alt="Facebook contact" width="30"></a> <a
-				href="https://www.instagram.com/humblekind555/"><img
-				src="https://cdn-icons-png.flaticon.com/128/174/174855.png"
-				alt="Instagram contact" width="30"></a>
+			<a href="https://www.facebook.com/nguyenloc.05/"><img src="https://cdn-icons-png.flaticon.com/128/733/733547.png" alt="Facebook contact" width="30"></a>
 		</div>
 	</footer>
 </body>

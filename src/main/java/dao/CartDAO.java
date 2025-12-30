@@ -11,7 +11,7 @@ import model.Product;
 
 public class CartDAO {
 
-	//Hàm kiếm tra xem tồn tại không
+	// Test exists cart_items
     public boolean exists(int userId, int productId) {
         String sql = "select 1 from cart_items where user_id = ? and product_id = ?";
         try (Connection conn = DatabaseConnect.getConnection();
@@ -29,7 +29,7 @@ public class CartDAO {
         return false;
     }
     
-    //Hàm thêm 
+    // insert 
     public void insert(int userId, int productId) {
         String sql = "insert into cart_items(user_id, product_id, quantity) values(?, ?, 1)";
         try (Connection conn = DatabaseConnect.getConnection();
@@ -44,7 +44,7 @@ public class CartDAO {
         }
     }
     
-    //Đã có thì thêm 1
+    // increase (+1)
     public void increase(int userId, int productId) {
         String sql = "update cart_items set quantity = quantity + 1 where user_id = ? and product_id = ?";
         try (Connection conn = DatabaseConnect.getConnection();
@@ -58,23 +58,20 @@ public class CartDAO {
             e.printStackTrace();
         }
     }
-
+    
+    // add
     public void addToCart(int userId, int productId) {
         if (exists(userId, productId)) increase(userId, productId);
         else insert(userId, productId);
     }
-
-    public void updateQty(int userId, int productId, int qty) {
-        if (qty <= 0) {
-            remove(userId, productId);
-            return;
-        }
-
+    
+    // update quality
+    public void updateQuantity(int userId, int productId, int quatity) {
         String sql = "update cart_items set quantity = ? where user_id = ? and product_id = ?";
         try (Connection conn = DatabaseConnect.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setInt(1, qty);
+            ps.setInt(1, quatity);
             ps.setInt(2, userId);
             ps.setInt(3, productId);
             ps.executeUpdate();
@@ -83,7 +80,8 @@ public class CartDAO {
             e.printStackTrace();
         }
     }
-
+    
+    // remove
     public void remove(int userId, int productId) {
         String sql = "delete from cart_items where user_id = ? and product_id = ?";
         try (Connection conn = DatabaseConnect.getConnection();
@@ -99,7 +97,7 @@ public class CartDAO {
     }
     
     
-    //Lấy giỏ hàng 
+    // 
     public List<CartItem> getItems(int userId) {
         List<CartItem> list = new ArrayList<>();
 
@@ -142,7 +140,8 @@ public class CartDAO {
         }
         return list;
     }
-
+    
+    // 
     public int getTotal(int userId) {
         String sql =
         		 "select sum(products.price * cart_items.quantity) " +

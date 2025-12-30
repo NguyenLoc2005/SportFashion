@@ -149,8 +149,7 @@
 				</div>
 
 				<div class="actions">
-					<a href="order">← Quay lại đơn hàng</a> <a href="clientHome">Tiếp
-						tục mua sắm →</a>
+					<a href="order">Quay lại đơn hàng</a>
 				</div>
 			</c:if>
 

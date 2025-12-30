@@ -11,7 +11,7 @@ import model.Product;
 
 public class ProductDAO {
 
-	// Lọc tìm kiếm
+	// Filter products
 	public List<Product> searchFilterProduct(String type) {
 		List<Product> productList = new ArrayList<>();
 		String sql = "select * from products where type like ?";
@@ -40,7 +40,7 @@ public class ProductDAO {
 		return productList;
 	}
 
-	// Tìm kiếm
+	// Search products
 	public List<Product> searchProduct(String name) {
 		List<Product> productList = new ArrayList<>();
 		String sql = "select * from products where name like ?";
@@ -68,7 +68,7 @@ public class ProductDAO {
 
 	}
 	
-	//Xem toàn bộ sản phẩm
+	// View all products
 	public List<Product> getAllProducts() {
 		List<Product> productList = new ArrayList<>();
 		String sql = "select * from products ";
@@ -95,8 +95,7 @@ public class ProductDAO {
 
 	}
 	
-	//Hàm xem chi tiết sản phẩm
-	// Xem chi tiết sản phẩm
+	// View detail product
 	public Product getProductById(int id) {
 	    String sql = "SELECT * FROM products WHERE id = ?";
 	    try (Connection conn = DatabaseConnect.getConnection();

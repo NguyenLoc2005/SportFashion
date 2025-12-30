@@ -6,7 +6,6 @@ public class User {
 	private String password;
 	private String role;
 
-	//contrucstor: hàm khởi tạo
 	public User() {
 
 	}
@@ -18,12 +17,10 @@ public class User {
 		this.role = role;
 	}
 	
-	//user: h(id=1), k 
 	public int getId() {
 		return id;
 	}
 	
-	//user: h(id=)
 	public void setId(int id) {
 		this.id = id;
 	}

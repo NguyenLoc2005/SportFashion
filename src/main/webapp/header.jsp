@@ -38,6 +38,7 @@ header{
     display: flex;
     justify-content: flex-end;
     gap: 30px;
+    padding-right: 30px;
 }
 .others input{
     font-size: 15px;
@@ -74,9 +75,6 @@ header{
         			<a href="login.jsp"><img src="https://cdn-icons-png.flaticon.com/128/456/456212.png" width="25"></a>
     			</c:otherwise>
 			</c:choose>
-            
-
-			
         </div>
 
     </header>

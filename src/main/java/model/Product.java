@@ -16,8 +16,7 @@ public class Product {
 
 	}
 
-	public Product(int id, String name, String category, String description, int quality, int price, String color,
-			String type, String size, String imageURL) {
+	public Product(int id, String name, String category, String description, int quality, int price, String color, String type, String size, String imageURL) {
 		super();
 		this.id = id;
 		this.name = name;

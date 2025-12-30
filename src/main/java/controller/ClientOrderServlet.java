@@ -33,7 +33,7 @@ public class ClientOrderServlet extends HttpServlet {
 
         String idRaw = req.getParameter("id");
 
-        // ====== XEM CHI TIẾT ĐƠN ======
+      
         if (idRaw != null && !idRaw.trim().isEmpty()) {
 
             int orderId;
